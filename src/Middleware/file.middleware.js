@@ -28,4 +28,5 @@ const upload = multer({
 export const fileUploadMiddleware = upload.fields([
   { name: "profilePicture", maxCount: 1 },
   { name: "resume", maxCount: 1 },
+  { name: "companyLogo", maxCount: 1 },
 ]);
