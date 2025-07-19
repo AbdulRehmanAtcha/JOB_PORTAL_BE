@@ -121,3 +121,5 @@ export const allowedSkills = [
   "time management",
   "critical thinking",
 ];
+
+export const limit = 10;

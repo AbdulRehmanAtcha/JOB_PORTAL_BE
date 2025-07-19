@@ -14,9 +14,11 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 import AuthRoutes from "./Routes/auth.routes.js";
-import JobRoutes from "./Routes/job.routes.js";
+import HrRoutes from "./Routes/hr.routes.js";
+import CandidateRoutes from "./Routes/candidate.routes.js";
 // seedTags();
 app.use("/api/v1/auth", AuthRoutes);
-app.use("/api/v1/hr", JobRoutes);
+app.use("/api/v1/hr", HrRoutes);
+app.use("/api/v1/candidate", CandidateRoutes);
 
 export { app };

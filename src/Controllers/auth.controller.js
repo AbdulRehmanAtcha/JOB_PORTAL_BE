@@ -89,6 +89,8 @@ export const LoginController = async (req, res) => {
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, options);
 
+    const { password: _, ...safeUser } = emailUser.toObject();
+
     // Postman
     res.cookie("token", token, {
       httpOnly: true,
@@ -97,7 +99,7 @@ export const LoginController = async (req, res) => {
       maxAge: 10 * 24 * 60 * 60 * 1000,
     });
 
-    return res.status(500).json(new ApiResponse(500, emailUser, "Email Find"));
+    return res.status(500).json(new ApiResponse(500, safeUser, "Email Find"));
   } catch (error) {
     return res
       .status(500)
